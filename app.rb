@@ -5,4 +5,19 @@ class App < Sinatra::Base
 	end
 
 
+	get '/hello' do 
+		erb :hello
+	end
+
+	get '/goodbye' do
+		erb :goodbye 
+	end
+
+	date = Date.today.strftime("%A, %B %d, %Y")
+
+	get '/date' do
+		erb :date
+	end
+
+
 end
