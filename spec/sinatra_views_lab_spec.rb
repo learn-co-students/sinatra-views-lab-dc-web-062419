@@ -1,5 +1,6 @@
-describe App do
+# frozen_string_literal: true
 
+describe App do
   describe 'GET /hello' do
     before do
       get '/hello'
@@ -10,7 +11,7 @@ describe App do
     end
 
     it 'renders a template called "hello.erb" ' do
-      expect(last_response.body).to eq(File.read("views/hello.erb"))
+      expect(last_response.body).to eq(File.read('views/hello.erb'))
     end
   end
 
@@ -24,7 +25,7 @@ describe App do
     end
 
     it 'renders a template called "goodbye.erb" ' do
-      expect(last_response.body).to include("Goodbye Joe")
+      expect(last_response.body).to include('Goodbye Joe')
     end
   end
   describe 'GET /date' do
@@ -37,16 +38,15 @@ describe App do
     end
 
     it 'renders a template called "date.erb" ' do
-      expect(last_response.body).to include("The date is")
+      expect(last_response.body).to include('The date is')
     end
 
     it 'includes the current date and time' do
       if last_response.status == 200
-        expect(last_response.body).to include(Date.today.strftime("%A, %B %d, %Y"))
+        expect(last_response.body).to include(Date.today.strftime('%A, %B %d, %Y'))
       elsif last_response.status = 404
-        fail "Your application is not responding to GET /date. Did you create that route?"
+        raise 'Your application is not responding to GET /date. Did you create that route?'
       end
     end
   end
 end
-

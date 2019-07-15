@@ -1,10 +1,12 @@
+# frozen_string_literal: true
+
 require_relative '../config/environment.rb'
 require 'rack/test'
-RACK_ENV = "test"
-ENV["RACK_ENV"] = "test"
+RACK_ENV = 'test'
+ENV['RACK_ENV'] = 'test'
 
 RSpec.configure do |config|
-	config.run_all_when_everything_filtered = true
+  config.run_all_when_everything_filtered = true
   config.filter_run :focus
   config.include Rack::Test::Methods
 
